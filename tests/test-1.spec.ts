@@ -1,0 +1,35 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://rahulshettyacademy.com/locatorspractice/');
+  await page.getByRole('link', { name: 'Forgot your password?' }).click();
+  await page.getByRole('heading', { name: 'Forgot password' }).click();
+  await page.getByRole('textbox', { name: 'Name', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Name', exact: true }).fill('himalaya');
+  await page.getByRole('textbox', { name: 'Name', exact: true }).press('Tab');
+  await page.getByRole('textbox', { name: 'Email' }).fill('himalayashinde@gmail.com');
+  await page.getByRole('textbox', { name: 'Email' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Phone Number' }).fill('8987656789');
+  await page.getByRole('button', { name: 'Reset Login' }).click();
+  await page.getByText('Please use temporary password').click();
+  await page.getByRole('button', { name: 'Go to Login' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).fill('himalaya');
+  await page.getByRole('textbox', { name: 'Username' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Password' }).fill('rahulshettycom');
+  await page.getByRole('textbox', { name: 'Password' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Password' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Password' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Password' }).fill('rahulshetty.com');
+  await page.getByRole('checkbox', { name: 'Remember my username' }).check();
+  await page.getByRole('checkbox', { name: 'I agree to the terms and' }).check();
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).fill('rahul');
+  await page.getByRole('textbox', { name: 'Username' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Password' }).fill('rahulshettyacademy');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  // await page.getByText('Rahul Shetty').click();
+  await page.getByText('You are successfully logged').click();
+  await page.getByRole('button', { name: 'Log Out' }).click();
+  // await page.getByRole('button', { name: 'Log Out' }).click();
+});
