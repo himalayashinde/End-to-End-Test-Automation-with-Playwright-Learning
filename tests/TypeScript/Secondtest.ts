@@ -23,5 +23,5 @@ console
 //close the browser instance    
 await browser.close();
 console.log('Browser closed.');
-
+  
 })();
